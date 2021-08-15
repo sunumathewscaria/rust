@@ -8,7 +8,7 @@ struct Foo {
 
 #[derive(Debug)]
 struct Deal {
-    dealName: String,
+    deal_name: String,
     amount: u32,
     desi: String,
 }
@@ -26,19 +26,19 @@ fn main() {
     display(foo as Foo);
 
     let mut deal = Deal {
-        dealName: String::from("testDealName"),
+        deal_name: String::from("testDealName"),
         amount: 123,
         desi: String::from("testDesi"),
     };
-    displayDeal(&deal);
-    changeDesi(&mut deal);
-    displayDeal(deal);
-    //displayDeal(deal);  -- deal goes out of scope on previous line
+    display_deal(&deal);
+    change_desi(&mut deal);
+    display_deal(deal);
+    //display_deal(deal);  -- deal goes out of scope on previous line
 
 
 }
 
-fn changeDesi(deal: &mut Deal) {
+fn change_desi(deal: &mut Deal) {
     deal.desi = String::from("testDesiChange");
 }
 
@@ -46,6 +46,6 @@ fn display<T: Debug>(foo: T) {
     println!("{:?}", foo);
 }
 
-fn displayDeal<T: Debug>(foo: T) {
+fn display_deal<T: Debug>(foo: T) {
     println!("{:?}", foo);
 }
