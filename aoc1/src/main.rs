@@ -25,7 +25,4 @@ fn main() {
         i = i + 1;
     }
     println!("{:?}", count);
-    for line in lines {
-        //println!("{:?}", line);
-    }
 }
