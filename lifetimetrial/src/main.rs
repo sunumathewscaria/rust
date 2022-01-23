@@ -1,4 +1,3 @@
-use std::ops::Deref;
 
 #[derive(Debug, Clone)]
 struct Address {
@@ -20,7 +19,6 @@ struct Product {
 }
 
 fn main() {
-    let test_string = String::new();
     let first_prod = Product {
         product_type: String::from("car"),
         price: 30,
@@ -55,11 +53,13 @@ fn main() {
     println!("{:?}", emp.comm_address);
     println!("{:?}", emp);
 
-    let first_num = 1;
-    let second_num = 2;
 
     let third = compare(1, 2);
+    println!("{:?}", third);
+
     let third_ref = compare_reference(&1, &2);
+    println!("{:?}", third_ref);
+
 }
 
 fn calculate_amount(emp: &mut Employee, comm_addr: Address, comm_addr_ref: &Address) {
@@ -69,6 +69,14 @@ fn calculate_amount(emp: &mut Employee, comm_addr: Address, comm_addr_ref: &Addr
     emp.comm_address = Option::Some(comm_addr);
     let comm_addr_ref_clone = comm_addr_ref.clone();
     emp.comm_address = Option::Some(comm_addr_ref_clone);
+
+    emp.order.iter().for_each(|f| println!("{:?}", f.product_type));
+
+    println!("{:?}", comm_addr_ref.housename);
+    println!("{:?}", emp.home_address);
+    println!("{:?}", comm_addr_ref.street);
+
+
 
     println!("{:?}", emp.amount);
 }
