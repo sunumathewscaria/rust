@@ -54,6 +54,12 @@ fn main() {
     println!("{:?}", emp.name);
     println!("{:?}", emp.comm_address);
     println!("{:?}", emp);
+
+    let first_num = 1;
+    let second_num = 2;
+
+    let third = compare(1, 2);
+    let third_ref = compare_reference(&1, &2);
 }
 
 fn calculate_amount(emp: &mut Employee, comm_addr: Address, comm_addr_ref: &Address) {
@@ -65,4 +71,19 @@ fn calculate_amount(emp: &mut Employee, comm_addr: Address, comm_addr_ref: &Addr
     emp.comm_address = Option::Some(comm_addr_ref_clone);
 
     println!("{:?}", emp.amount);
+}
+fn compare(first: i32, second: i32) -> i32 {
+    if first > second {
+        first
+    } else {
+        second
+    }
+}
+
+fn compare_reference<'a>(first: &'a i32, second: &'a i32) -> &'a i32 {
+    if first > second {
+        first
+    } else {
+        second
+    }
 }
